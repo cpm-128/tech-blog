@@ -1,0 +1,20 @@
+{{!-- DISPLAY COMMENTS --}}
+<div class="comments">
+
+    {{!-- user the #each helper to iterate over the comments array --}}
+    {{#each this }}
+    <section class="comment card">
+
+        <div class="title card-header"></div>
+
+        <div class="card-body">
+            {{!-- use the format_date helper function on the default created_at --}}
+            {{comment_text}}
+            <br><br>
+            - {{user.username}} on {{format_date created_at}}
+        </div>
+
+    </section>
+    {{/each}}
+
+</div>
