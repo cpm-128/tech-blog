@@ -1,7 +1,55 @@
 const router = require('express').Router();
-const { Post } = require('../../models/');
+const { Post, User } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
+// GET all posts
+// CREATE post
+// UPDATE single post by id
+// DELETE single post by id
+
+
+// GET all posts for testing purposes
+router.get('/', (req, res) => {
+  Post.findAll({
+    attributes: [
+      'id',
+      'post_url',
+      'title',
+      'created_at'
+    ],
+    // sort by
+    order: [['created_at', 'DESC']],
+    // join
+    include: [
+      { //author
+        model: User,
+        attributes: ['username']
+      },
+      { //comments
+        model: Comment,
+        attributes: [
+          'id',
+          'comment_text',
+          'post_id',
+          'user_id',
+          'created_at'
+        ],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      }
+    ]
+  })
+  .then(dbAllPostData => res.json(dbAllPostData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+
+// CREATE post
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
 
@@ -13,6 +61,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// UPDATE single post by id
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const [affectedRows] = await Post.update(req.body, {
@@ -31,6 +80,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
+// DELETE single post by id
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const [affectedRows] = Post.destroy({

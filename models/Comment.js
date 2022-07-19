@@ -47,6 +47,7 @@ Comment.init(
         // configure the metadata
         //=====================================
         sequelize,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'comment'

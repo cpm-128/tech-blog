@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
+
+//TODO: add withAuth to the api calls, all except GET
 
 // GET all users
 // POST single user
