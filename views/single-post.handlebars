@@ -3,13 +3,14 @@
 
 {{!-- LEAVE A COMMENT if signed in --}}
 {{!-- the loggedIn variable comes from home-routes.js --}}
-{{#if loggedIn}}
+
 <form class="card">
 
     <div class="title card-header"></div>
-    <div class="form-label">Leave a comment</div>
 
     <div class="card-body">
+
+        <div class="form-label">Leave a comment</div>
 
         <div class="form-textarea">
             <textarea  class="form-input" name="comment-body"></textarea>
@@ -22,7 +23,7 @@
     </div>
 
 </form>
-{{/if}}
+
 
 {{!-- DISPLAY COMMENTS imported from comments partial --}}
 {{> comments post.comments}}

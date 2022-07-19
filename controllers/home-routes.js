@@ -17,8 +17,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-//TODO: update the handlebars files that will be rendered
-
 // get single post for loggedIn users only
 router.get('/posts/:id', async (req, res) => {
   try {
@@ -47,6 +45,8 @@ router.get('/posts/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//TODO: update the handlebars files that will be rendered
 
 // giving you the login and signup route pieces below, no changes needed.
 router.get('/login', (req, res) => {
