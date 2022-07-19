@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 //TODO: update the handlebars files that will be rendered
 
 // get single post
-router.get('/post/:id', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
   try {
     // what should we pass here? we need to get some data passed via the request body (something.something.id?)
     // change the model below, but not the findByPk method.
