@@ -5,7 +5,7 @@ const { User } = require('../../models');
 // CRUD OPERATIONS
 // ===============
 
-// GET api/users
+// CREATE api/users
 router.post('/', async (req, res) => {
   try {
     const newUser = await User.create({
@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Login Route for Authentication - compares user-entered password to hashed password
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({
