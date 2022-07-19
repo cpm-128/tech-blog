@@ -17,6 +17,8 @@ router.get('/', async (req, res) => {
   }
 });
 
+//TODO: update the handlebars files that will be rendered
+
 // get single post
 router.get('/post/:id', async (req, res) => {
   try {
