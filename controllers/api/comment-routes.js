@@ -5,6 +5,8 @@ const withAuth = require('../../utils/auth');
 // GET all comments
 // CREATE new comment
 
+//TODO: all withAuth to all except get route
+
 // GET all comments
 router.get('/', (req, res) => {
   Comment.findAll()
@@ -16,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 // CREATE new comment
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
