@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
 //TODO: update the handlebars files that will be rendered
 
-// get single post
+// get single post for loggedIn users only
 router.get('/posts/:id', async (req, res) => {
   try {
     // what should we pass here? we need to get some data passed via the request body (something.something.id?)
@@ -39,7 +39,7 @@ router.get('/posts/:id', async (req, res) => {
       // serialize the data
       const post = postData.get({ plain: true });
       // which view should we render for a single-post?
-      res.render('single-post', { post });
+      res.render('single-post', { post, loggedIn: req.session.loggedIn });
     } else {
       res.status(404).end();
     }
