@@ -2,7 +2,9 @@ const router = require('express').Router();
 const { Post } = require('../models/');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+//TODO: all withAuth to ALL routes here
+
+router.get('/', async (req, res) => {
   try {
     // store the results of the db query in a variable called postData. should use something that "finds all" from the Post model. may need a where clause!
     const postData = await Post.findAll({
@@ -26,7 +28,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/new', withAuth, (req, res) => {
+router.get('/new', (req, res) => {
   // what view should we send the client when they want to create a new-post? (change this next line)
   res.render('new-post', {
     // again, rendering with a different layout than main! no change needed
@@ -34,7 +36,7 @@ router.get('/new', withAuth, (req, res) => {
   });
 });
 
-router.get('/edit/:id', withAuth, async (req, res) => {
+router.get('/edit/:id', async (req, res) => {
   try {
     // what should we pass here? we need to get some data passed via the request body
     const postData = await Post.findByPk(req.params.id);
