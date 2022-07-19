@@ -7,6 +7,7 @@ const withAuth = require('../../utils/auth');
 // UPDATE single post by id
 // DELETE single post by id
 
+//TODO: add withAuth to all except for GET
 
 // GET all posts for testing purposes
 router.get('/', (req, res) => {
@@ -50,7 +51,7 @@ router.get('/', (req, res) => {
 
 
 // CREATE post
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   const body = req.body;
 
   try {
@@ -62,7 +63,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // UPDATE single post by id
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const [affectedRows] = await Post.update(req.body, {
       where: {
@@ -81,7 +82,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 // DELETE single post by id
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const [affectedRows] = Post.destroy({
       where: {
