@@ -1,19 +1,18 @@
-<form class="card">
+<form class="card" id="login-form">
 
     <div class="title card-header">Login</div>
-    
+
     <div class="card-body">
-        <div class="form-label">Username</div>
-        <div class="form-label">Password</div>
-
-    
-
-        <div class="form-textarea">
-            <textarea  class="form-input" name="comment-body"></textarea>
-        </div>
-
         <div>
-            <button class="btn" type="submit">Add comment</button>
+            <label for="username-input-login" class="form-label">Username</label>
+            <input type="text" id="username-input-login" />
+        </div>
+        <div>
+            <label for="password-input-login" class="form-label">Password</label>
+            <input type="text" id="password-input-login" />
+        </div>
+        <div>
+            <button class="btn" type="submit">Login</button>
         </div>
 
     </div>
