@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// ===============
+// CRUD OPERATIONS
+// ===============
+
+// GET api/users
 router.post('/', async (req, res) => {
   try {
     const newUser = await User.create({
