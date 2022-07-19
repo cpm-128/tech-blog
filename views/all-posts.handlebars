@@ -1,0 +1,9 @@
+<ol class="post-list card">
+    {{!-- loop over the posts array in home-routes.js --}}
+    {{#each posts as |post|}}
+    <li>
+        {{!-- import the partial with the name of the partial and the object name--}}
+        {{> post-info post }}
+    </li>
+    {{/each}}
+</ol>
