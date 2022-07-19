@@ -46,8 +46,6 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
-//TODO: update the handlebars files that will be rendered
-
 // giving you the login and signup route pieces below, no changes needed.
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {

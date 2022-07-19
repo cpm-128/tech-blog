@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 // Login Route for Authentication - compares user-entered password to hashed password
 router.post('/login', async (req, res) => {
   try {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {username: 'lernantino', password: 'password1234'}
     const user = await User.findOne({
       where: {
         username: req.body.username,
