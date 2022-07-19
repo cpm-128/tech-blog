@@ -2,22 +2,40 @@ const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
 
+// model associations and their reverse association
+
 Post.belongsTo(User, {
-  foreignKey: 'userId',
+  foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
-// need User.hasMany(Post...?
+User.hasMany(Post, {
+  foreignKey: 'user_id'
+});
+
+// ===
 
 Post.hasMany(Comment, {
-  foreignKey: 'postId',
+  foreignKey: 'post_id',
   onDelete: 'CASCADE'
 });
 
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id'
+});
+
+// ===
+
 Comment.belongsTo(User, {
-  foreignKey: 'userId',
+  foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id'
+});
+
+// ===
 
 module.exports = {
   User,
