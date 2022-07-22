@@ -5,13 +5,15 @@ const withAuth = require('../utils/auth');
 //TODO: all withAuth to ALL routes here
 
 router.get('/', async (req, res) => {
-  console.log(req.session.user_id, " this is the session id");
+  console.log(req.session.userId, " this is the session userId");
   try {
     // store the results of the db query in a variable called postData. should use something that "finds all" from the Post model. may need a where clause!
     const postData = await Post.findAll({
       where: {
         // use the ID from the session
-        user_id: req.session.user_id
+        //userID is from the start code
+        //user_id is from my model
+        user_id: req.session.userId
       }
     })
     // this sanitizes the data we just got from the db above (you have to create the above)
