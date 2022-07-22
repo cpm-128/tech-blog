@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth');
 //TODO: all withAuth to ALL routes here
 
 router.get('/', async (req, res) => {
+  console.log(req.session.user_id, " this is the session id");
   try {
     // store the results of the db query in a variable called postData. should use something that "finds all" from the Post model. may need a where clause!
     const postData = await Post.findAll({
@@ -17,13 +18,14 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // fill in the view to be rendered //TODO: this should display all posts for the user?
-    res.render('dashboard', {
+    res.render('all-posts', {
       // this is how we specify a different layout other than main! no change needed
       layout: 'dashboard',
       // coming from line 10 above, no change needed
       posts,
     });
   } catch (err) {
+    console.log('>> unable to access dashboard <<')
     res.redirect('login');
   }
 });
