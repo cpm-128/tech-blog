@@ -21,8 +21,11 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newComment = await Comment.create({
-      ...req.body,
+//      ...req.body,
+//todo: what needs to be here??
       user_id: req.session.userId,
+      post_id: req.session.postId,
+      comment_text: body.body
     });
     res.json(newComment);
   } catch (err) {
