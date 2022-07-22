@@ -3,8 +3,8 @@
 
 {{!-- LEAVE A COMMENT if signed in --}}
 {{!-- the loggedIn variable comes from home-routes.js --}}
-
-<form class="card">
+{{#if loggedIn}}
+<form class="card" id="new-comment-form">
 
     <div class="title card-header"></div>
 
@@ -23,13 +23,14 @@
     </div>
 
 </form>
+{{/if}}
 
 
 {{!-- DISPLAY COMMENTS imported from comments partial --}}
 {{> comments post.comments}}
 
 {{!-- static script to add functionality to comment box --}}
-{{!-- only rnder if logged in. will not break anything, but just unnecessary --}}
-{{#if logged}}
-<script src="/javascript/comment.js"></script>
+{{!-- only render if logged in. will not break anything, but just unnecessary --}}
+{{#if loggedIn}}
+<script src="/js/comment.js"></script>
 {{/if}}
