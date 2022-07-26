@@ -25,8 +25,8 @@ router.post('/', async (req, res) => {
 //      ...req.body,
 //todo: what needs to be here??
       user_id: req.session.userId,
-      post_id: req.session.postId,
-      comment_text: body.body
+      post_id: req.body.postId,
+      comment_text: req.body.commentBody
     });
     res.json(newComment);
   } catch (err) {
