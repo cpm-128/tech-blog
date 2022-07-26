@@ -70,20 +70,27 @@ router.post('/', async (req, res) => {
 // UPDATE single post by id
 router.put('/:id', async (req, res) => {
   try {
-    const [affectedRows] = await Post.update(req.body, {
-      title: body.title,
-      content: body.body,
-      user_id: req.session.userId,
-      where: {
-        id: req.params.id
+    let postData = await Post.update(
+      {
+        title: req.body.title,
+        content: req.body.body,
       },
-    });
-
-    if (affectedRows > 0) {
-      res.status(200).end();
-    } else {
-      res.status(404).end();
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    );
+    console.log('>>> post data >>>' , postData);
+    if(!postData) {
+      res.status(404).json('No post found with this id.');
+      return;
     }
+    // if (affectedRows > 0) {
+    //   res.status(200).end();
+    // } else {
+    //   res.status(404).end();
+    // }
   } catch (err) {
     res.status(500).json(err);
   }
