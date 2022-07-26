@@ -1,1 +1,9 @@
-<h1>Hello, World!</h1>
+<ul class="post-list">
+    {{!-- loop over the posts array in home-routes.js --}}
+    {{#each posts as |post|}}
+    <li>
+        {{!-- import the partial with the name of the partial and the object name--}}
+        {{> post-info-admin post }}
+    </li>
+    {{/each}}
+</ul>
