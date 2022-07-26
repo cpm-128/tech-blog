@@ -71,11 +71,11 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const [affectedRows] = await Post.update(req.body, {
+      title: body.title,
+      content: body.body,
+      user_id: req.session.userId,
       where: {
-        id: req.params.id,
-        title: body.title,
-        content: body.body,
-        user_id: req.session.userId
+        id: req.params.id
       },
     });
 
