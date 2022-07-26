@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
 
 // CREATE new comment
 router.post('/', async (req, res) => {
+  // expects { comment_text: "This is the comment", user_id: 1, post_id: 2}
   try {
     const newComment = await Comment.create({
 //      ...req.body,

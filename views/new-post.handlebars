@@ -1,1 +1,26 @@
-{{!--  --}}
+{{!-- confirmed now post button works. add post form here --}}
+<h1>Hello, Word!</h1>
+
+<form class="card" id="new-post-form">
+
+    <div class="title card-header">Create New Post</div>
+
+    <div class="card-body">
+        <div>
+            <label for="post-title" class="form-label">Title</label>
+            <input id="post-title" type="text" />
+        </div>
+        <div>
+            <label for="post-body" class="form-label">Content</label>
+            <input id="post-body" type="text" />
+        </div>
+        <div>
+            <button class="btn" type="submit">Create</button>
+        </div>
+
+    </div>
+
+</form>
+
+{{!-- connect to static public/js/login.js file --}}
+<script src="/js/new.js"></script>
