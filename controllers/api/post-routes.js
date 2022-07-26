@@ -73,6 +73,9 @@ router.put('/:id', async (req, res) => {
     const [affectedRows] = await Post.update(req.body, {
       where: {
         id: req.params.id,
+        title: body.title,
+        content: body.body,
+        user_id: req.session.userId
       },
     });
 
