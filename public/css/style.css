@@ -1,9 +1,9 @@
 :root {
-  --primary: #ccdad1;
-  --secondary: #9caea9;
-  --tertiary: #788585;
-  --light-dark: #6f6866;
-  --dark: #38302e;
+  --primary: #ffffff;
+  --secondary: rgb(195,193,186);
+  --tertiary: #000000;
+  --light-dark: rgb(178,199,198);
+  --dark: rgb(32,85,107);
   --border-radius: 0.3rem;
 }
 
@@ -34,7 +34,7 @@ h6 {
 }
 
 h2 a:visited {
-  color: var(--tertiary);
+  color: var(--light-dark);
 }
 
 h2 a {
@@ -81,14 +81,14 @@ input {
   color: var(--primary);
   border: none;
   outline: none;
-  background-color: var(--light-dark);
+  background-color: var(--secondary);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
 }
 
 .btn:hover {
   color: var(--primary);
-  background-color: var(--tertiary);
+  background-color: var(--light-dark);
   transform: translate(0, 0);
   box-shadow: 2px 2px var(--dark);
 }
