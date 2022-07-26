@@ -76,7 +76,6 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 ## Installation
 - Clone the directly from the GitHub repository to your local machine.
 - Run _npm init_ in the command line.
-- Run _node seeds/index.js_ in the command line to seed the database.
 - Run the command _node server.js_ to launch the application.
 
 ### Required Packages
@@ -96,18 +95,14 @@ To access a community of tech professionals who share blog posts of new informat
 <img src="./images/tech-blog_mockup.gif">
 
 ## Deployed Application
-Live url: **_TBD on heroku_**
+Live url: https://whispering-dusk-78788.herokuapp.com/<br>
 Repo url: https://github.com/cpm-128/tech-blog
 
 ### Screencapture
-**Description**
-<img src="">
-
-### Video Walkthrough
-<a href="">Watch here.</a>
+<img src="./images/the-tech-blog_deployed.png">
 
 ## Contributors
-
+Some bonus starter code provided by UNC Chapel Hill Bootcamp.
 ## License
 MIT License
 
