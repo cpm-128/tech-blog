@@ -4,7 +4,7 @@ const newFormHandler = async function(event) {
   const title = document.querySelector('#post-title').value;
   const body = document.querySelector('#post-body').value;
 
-  await fetch(`/api/post`, {
+  await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
       title,
